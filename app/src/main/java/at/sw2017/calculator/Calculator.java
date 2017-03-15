@@ -70,6 +70,7 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
             case R.id.buttoneq:
                 break;
             case R.id.buttonC:
+                clearTextView();
                 break;
             default:
                 String recentNumber = numberView.getText().toString();
@@ -79,5 +80,9 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
                 recentNumber += clickedButton.getText().toString();
                 numberView.setText( recentNumber );
         }
+    }
+
+    private void clearTextView () {
+        numberView.setText("0");
     }
 }
