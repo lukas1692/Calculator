@@ -58,6 +58,50 @@ public class CalculatorInstrumentedTest {
     }
 
     @Test
+    public void testPlus(){
+        onView( withText( "3" )). perform ( click());
+        onView( withText( "+" )). perform ( click());
+        onView( withText( "3" )). perform ( click());
+        onView( withText( "=" )). perform ( click());
+        onView( withId( R.id.textView)).check( matches(withText("6")));
+    }
+
+    @Test
+    public void testMinus(){
+        onView( withText( "3" )). perform ( click());
+        onView( withText( "-" )). perform ( click());
+        onView( withText( "3" )). perform ( click());
+        onView( withText( "=" )). perform ( click());
+        onView( withId( R.id.textView)).check( matches(withText("0")));
+    }
+
+    @Test
+    public void testMult(){
+        onView( withText( "3" )). perform ( click());
+        onView( withText( "*" )). perform ( click());
+        onView( withText( "3" )). perform ( click());
+        onView( withText( "=" )). perform ( click());
+        onView( withId( R.id.textView)).check( matches(withText("9")));
+    }
+
+    @Test
+    public void testInit(){
+        onView( withText( "=" )). perform ( click());
+        onView( withId( R.id.textView)).check( matches(withText("0")));
+    }
+
+
+    @Test
+    public void testPlusMinus(){
+        onView( withText( "3" )). perform ( click());
+        onView( withText( "+" )). perform ( click());
+        onView( withText( "3" )). perform ( click());
+        onView( withText( "-" )). perform ( click());
+        onView( withText( "3" )). perform ( click());
+        onView( withId( R.id.textView)).check( matches(withText("3")));
+    }
+
+    @Test
     public void useAppContext() throws Exception {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
